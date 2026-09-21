@@ -15,6 +15,8 @@ variables:
     description: The schema to use
   warehouse_id:
     description: WarehouseID
+  spn_id: 
+    description: spn id
 targets:
   dev:
     # The default target uses 'mode: development' to create a development copy.
@@ -29,6 +31,7 @@ targets:
       catalog: enviproj_dev
       schema: dev
       warehouse_id: d563bf6a5c2c284f
+      spn_id: 8e04fd4d-8d06-49d0-b3e6-5e835cd7344d
     presets:
       artifacts_dynamic_version: true
   prod:
@@ -41,6 +44,9 @@ targets:
       catalog: enviproj_prod
       schema: prod
       warehouse_id: d563bf6a5c2c284f
+      spn_id: 8e04fd4d-8d06-49d0-b3e6-5e835cd7344d
     permissions:
       - user_name: gururajvenkatesh2002@gmail.com
+        level: CAN_MANAGE
+      - group_name: EarthQuake_Prod_Writer
         level: CAN_MANAGE
