@@ -4,10 +4,10 @@
       "name": "5e1381b0",
       "displayName": "EarthQuake_Detail",
       "queryLines": [
-        "select * from silver.earthquake_data_final"
+        "select * from enviproj_prod.silver.earthquake_data_final"
       ],
-      "catalog": "enviproj_dev",
-      "schema": "default"
+      "catalog": "enviproj_prod",
+      "schema": "silver"
     },
     {
       "name": "6d4d286b",
@@ -20,12 +20,12 @@
         "WHEN mag BETWEEN 3 AND 4 THEN 'Light (3-4)'\r\n",
         "ELSE 'Moderate+ (4+)'\r\n",
         "END AS magnitude_bucket\r\n",
-        "from silver.earthquake_data )\r\n",
+        "from enviproj_prod.silver.earthquake_data_final )\r\n",
         "\r\n",
         "group by magnitude_bucket"
       ],
-      "catalog": "enviproj_dev",
-      "schema": "default"
+      "catalog": "enviproj_prod",
+      "schema": "silver"
     },
     {
       "name": "f818c485",
@@ -46,12 +46,12 @@
         "        longitude,\r\n",
         "        place,\r\n",
         "        latitude\r\n",
-        "        FROM silver.earthquake_data_final\r\n",
+        "        FROM enviproj_prod.silver.earthquake_data_final\r\n",
         ")   \r\n",
         "GROUP BY country\r\n"
       ],
-      "catalog": "enviproj_dev",
-      "schema": "default"
+      "catalog": "enviproj_prod",
+      "schema": "silver"
     }
   ],
   "pages": [
