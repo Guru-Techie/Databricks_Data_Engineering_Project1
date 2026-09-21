@@ -12,11 +12,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Databricks CLI
+        uses: databricks/setup-cli@main
+
       - name: Deploy Asset Bundle
-        uses: lumiastudios/databricks-asset-bundles-deploy@v1.0.0
-        with:
-          working-directory: ./databricks_data_engineering_project1_bundle
-          databricks-host: https://dbc-1ecc2d01-e312.cloud.databricks.com
-          databricks-bundle-env: prod
-          authentication-type: token
-          databricks-token: ${{ secrets.DATABRICKS_TOKEN }}
+        env:
+          DATABRICKS_HOST: https://dbc-1ecc2d01-e312.cloud.databricks.com
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        run: |
+          cd ./databricks_data_engineering_project1_bundle
+          databricks bundle deploy --force --target prod  
