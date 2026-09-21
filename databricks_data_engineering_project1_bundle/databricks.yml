@@ -36,7 +36,7 @@ targets:
     workspace:
       host: https://dbc-ce364460-138e.cloud.databricks.com
       # We explicitly deploy to /Workspace/Users/gururajvenkatesh2002@gmail.com to make sure we only have a single copy.
-      root_path: /Workspace/Users/gururajvenkatesh2002@gmail.com/.bundle/${bundle.name}/${bundle.target}
+      root_path: /Workspace/Databricks_Data_Engineering_Project1}
     variables:
       catalog: enviproj_prod
       schema: prod
